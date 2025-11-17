@@ -31,7 +31,7 @@ export const useSearchMovies = () => {
     total_results: number;
   }>(
     debouncedSearchTerm
-      ? `https://api.themoviedb.org/3/search/movie?query=${debouncedSearchTerm}`
+      ? `${process.env.NEXT_PUBLIC_API_URL}/search/movie?query=${debouncedSearchTerm}`
       : null,
     fetcher,
   );

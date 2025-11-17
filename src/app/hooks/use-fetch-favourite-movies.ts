@@ -18,7 +18,7 @@ export const useFetchFavouriteMovies = () => {
     total_pages: number;
     total_results: number;
   }>(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+    `${process.env.NEXT_PUBLIC_API_URL}/movie/popular?language=en-US&page=1`,
     fetcher,
   );
 
