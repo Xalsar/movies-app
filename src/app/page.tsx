@@ -1,10 +1,19 @@
+"use client";
+
 import { Button } from "~/components/ui/button";
 
 import { Input } from "~/components/ui/input";
 
 import { MovieCard } from "./components/movie-card";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+  const router = useRouter();
+
+  const handleClickViewMoreDetails = (movieId: string) => {
+    router.push(`/movie/${movieId}`);
+  };
+
   return (
     <div className="mx-auto max-w-7xl py-3">
       <form className="flex gap-3">
@@ -17,31 +26,43 @@ export default function HomePage() {
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
+          handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
         />{" "}
         <MovieCard
           title="Mock title"
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
+          handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
         />{" "}
         <MovieCard
           title="Mock title"
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
+          handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
         />{" "}
         <MovieCard
           title="Mock title"
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
+          handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
         />{" "}
         <MovieCard
           title="Mock title"
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
-        />
+          handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+        />{" "}
+        <MovieCard
+          title="Mock title"
+          imageUrl="https://picsum.photos/200/300"
+          releaseDate="01/01/2024"
+          rating="4/5"
+          handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+        />{" "}
       </div>
       <div className="mt-10">
         <h2 className="mb-3 text-3xl font-bold">Popular movies</h2>
@@ -51,7 +72,43 @@ export default function HomePage() {
             imageUrl="https://picsum.photos/200/300"
             releaseDate="01/01/2024"
             rating="4/5"
-          />
+            handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+          />{" "}
+          <MovieCard
+            title="Mock title"
+            imageUrl="https://picsum.photos/200/300"
+            releaseDate="01/01/2024"
+            rating="4/5"
+            handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+          />{" "}
+          <MovieCard
+            title="Mock title"
+            imageUrl="https://picsum.photos/200/300"
+            releaseDate="01/01/2024"
+            rating="4/5"
+            handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+          />{" "}
+          <MovieCard
+            title="Mock title"
+            imageUrl="https://picsum.photos/200/300"
+            releaseDate="01/01/2024"
+            rating="4/5"
+            handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+          />{" "}
+          <MovieCard
+            title="Mock title"
+            imageUrl="https://picsum.photos/200/300"
+            releaseDate="01/01/2024"
+            rating="4/5"
+            handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+          />{" "}
+          <MovieCard
+            title="Mock title"
+            imageUrl="https://picsum.photos/200/300"
+            releaseDate="01/01/2024"
+            rating="4/5"
+            handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+          />{" "}
         </div>
       </div>
     </div>

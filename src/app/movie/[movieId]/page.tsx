@@ -1,13 +1,25 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import Image from "next/image";
+import { Button } from "~/components/ui/button";
+
+import { useRouter } from "next/navigation";
 
 export default function MoviePage() {
+  const router = useRouter();
+
+  const handleClickGoBack = () => {
+    router.push("/");
+  };
+
   return (
     <Card className="m-4 mx-auto max-w-7xl">
       <CardHeader>
         <CardTitle className="text-2xl">Movie Title</CardTitle>
       </CardHeader>
       <CardContent className="">
+        <Button onClick={handleClickGoBack}>Go back to main list</Button>
         <div className="flex flex-col items-center gap-3 text-center">
           <Image
             src="https://picsum.photos/800/1200"

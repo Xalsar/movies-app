@@ -8,11 +8,13 @@ export const MovieCard = ({
   title,
   releaseDate,
   rating,
+  handleClickViewMoreDetails,
 }: {
   imageUrl: string;
   title: string;
   releaseDate: string;
   rating: string;
+  handleClickViewMoreDetails: () => void;
 }) => {
   return (
     <Card className="my-3 block w-xl">
@@ -27,7 +29,9 @@ export const MovieCard = ({
           <CardTitle className="text-xl">{title}</CardTitle>
           <p>{releaseDate}</p>
           <p>{rating}</p>
-          <Button className="mt-3 block">View details</Button>
+          <Button className="mt-3 block" onClick={handleClickViewMoreDetails}>
+            View details
+          </Button>
         </div>
       </CardContent>
     </Card>
