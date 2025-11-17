@@ -26,6 +26,8 @@ export default function HomePage() {
     data: searchMoviesData,
     error: searchMoviesError,
     isLoading: searchMoviesIsLoading,
+    noMoviesFound,
+    didUserStartSearching,
   } = useSearchMovies();
 
   return (
@@ -39,6 +41,23 @@ export default function HomePage() {
           onChange={handleInputChange}
         />
       </form>
+      {!didUserStartSearching && (
+        <Alert className="mt-2">
+          <AlertTitle>Search for movies</AlertTitle>
+          <AlertDescription>
+            Use the search bar above to find your favorite movies by title.
+          </AlertDescription>
+        </Alert>
+      )}
+      {!searchMoviesIsLoading && noMoviesFound && didUserStartSearching && (
+        <Alert className="mt-2">
+          <AlertTitle>No search results</AlertTitle>
+          <AlertDescription>
+            No movies found matching your search criteria. Please try a
+            different keyword.
+          </AlertDescription>
+        </Alert>
+      )}
       {searchMoviesError && (
         <Alert variant="destructive">
           <AlertTitle>Error loading search results</AlertTitle>

@@ -36,11 +36,16 @@ export const useSearchMovies = () => {
     fetcher,
   );
 
+  const didUserStartSearching = debouncedSearchTerm.length > 0;
+  const noMoviesFound = data?.results.length === 0;
+
   return {
     query,
     handleInputChange,
     data,
     error,
     isLoading,
+    didUserStartSearching,
+    noMoviesFound,
   };
 };
