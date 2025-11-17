@@ -6,6 +6,8 @@ import { Button } from "~/components/ui/button";
 import { useNavigateToMoviesList } from "./hooks/use-navigate-to-movies-list";
 import { useFetchMovieDetails } from "./hooks/use-fetch-movie-details";
 
+import { fromMinutesToHoursAndMinutes } from "~/utils/from-minutes-to-hours-and-minutes";
+
 import { useParams } from "next/navigation";
 
 export default function MoviePage() {
@@ -23,8 +25,6 @@ export default function MoviePage() {
     error: movieDetailsError,
     isLoading: movieDetailsIsLoading,
   } = useFetchMovieDetails(movieId);
-
-  console.log("movieDetailsData", movieDetailsData);
 
   return (
     <Card className="m-4 mx-auto max-w-7xl">
@@ -60,7 +60,7 @@ export default function MoviePage() {
             </p>
             <p>
               <span className="font-bold">Runtime:</span>{" "}
-              {movieDetailsData.runtime} minutes
+              {fromMinutesToHoursAndMinutes(movieDetailsData.runtime)}
             </p>
             <p>
               <span className="font-bold">Languages:</span>{" "}

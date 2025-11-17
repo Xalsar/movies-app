@@ -55,7 +55,7 @@ export interface MovieDetails {
   production_countries: ProductionCountry[];
   release_date: string; // YYYY-MM-DD format
   revenue: number;
-  runtime: number | null; // Runtime can sometimes be null
+  runtime: number; // Runtime can sometimes be null
   spoken_languages: SpokenLanguage[];
   status: string; // e.g., "Released"
   tagline: string;
