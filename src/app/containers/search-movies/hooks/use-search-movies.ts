@@ -3,7 +3,7 @@ import useSWR from "swr";
 import { useState } from "react";
 import axios from "axios";
 
-import { useDebounce } from "~/utils/use-debouncer";
+import { useDebounce } from "~/utils/use-debounce";
 
 import type { Movie } from "~/types/movie";
 
