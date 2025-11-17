@@ -9,6 +9,8 @@ import { useFetchMovieDetails } from "./hooks/use-fetch-movie-details";
 import { fromMinutesToHoursAndMinutes } from "~/utils/from-minutes-to-hours-and-minutes";
 
 import { useParams } from "next/navigation";
+import { LoadingSpinner } from "~/app/components/loading-spinner";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 
 export default function MoviePage() {
   const params = useParams();
@@ -33,6 +35,18 @@ export default function MoviePage() {
       </CardHeader>
       <CardContent className="">
         <Button onClick={navigateToMoviesList}>Go back to main list</Button>
+        {movieDetailsError && (
+          <Alert variant="destructive">
+            <AlertTitle>Error loading movie details</AlertTitle>
+            <AlertDescription>
+              An unexpected error occurred while fetching movie details. Please
+              try again later. Contact support if the problem persists.
+            </AlertDescription>
+          </Alert>
+        )}
+        {movieDetailsIsLoading && (
+          <LoadingSpinner>Loading movie details...</LoadingSpinner>
+        )}
         {movieDetailsData && (
           <div className="flex flex-col items-center gap-3 text-center">
             <Image
