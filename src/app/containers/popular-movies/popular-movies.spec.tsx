@@ -159,7 +159,22 @@ describe("PopularMovies", () => {
     expect(screen.getByTestId("release-date-Movie 1")).toHaveTextContent(
       "2024-01-01",
     );
+    // Adjusted expectation for rating to match one decimal place
     expect(screen.getByTestId("rating-Movie 1")).toHaveTextContent("8.5/10");
+
+    // Check second movie with poster
+    expect(screen.getByTestId("movie-link-Movie 2")).toHaveAttribute(
+      "href",
+      "/movie/2",
+    );
+    expect(screen.getByAltText("Movie 2")).toHaveAttribute(
+      "src",
+      "https://image.tmdb.org/t/p/w500/path2.jpg",
+    );
+    expect(screen.getByTestId("release-date-Movie 2")).toHaveTextContent(
+      "2024-02-01",
+    );
+    expect(screen.getByTestId("rating-Movie 2")).toHaveTextContent("7.5/10");
 
     // Check movie without poster
     expect(screen.queryByAltText("Movie 3")).not.toBeInTheDocument();
