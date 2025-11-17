@@ -2,6 +2,7 @@ import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { useFetchPopularMovies } from "./hooks/use-fetch-popular-movies";
 import { LoadingSpinner } from "~/app/components/loading-spinner";
 import { MovieCard } from "~/app/components/movie-card";
+import { AlertCircleIcon } from "lucide-react";
 
 export const PopularMovies = () => {
   const {
@@ -15,6 +16,7 @@ export const PopularMovies = () => {
       <h2 className="mb-2 text-2xl font-bold">Popular movies</h2>
       {popularMoviesError && (
         <Alert variant="destructive">
+          <AlertCircleIcon />
           <AlertTitle>Error loading popular movies</AlertTitle>
           <AlertDescription>
             An unexpected error occurred while fetching popular movies. Please

@@ -3,7 +3,7 @@ import { useSearchMovies } from "./hooks/use-search-movies";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { LoadingSpinner } from "~/app/components/loading-spinner";
 import { MovieCard } from "~/app/components/movie-card";
-import { Search } from "lucide-react";
+import { AlertCircleIcon, Search } from "lucide-react";
 
 export const SearchMovies = () => {
   const {
@@ -54,6 +54,7 @@ export const SearchMovies = () => {
       )}
       {searchMoviesError && (
         <Alert variant="destructive" className="mt-2">
+          <AlertCircleIcon />
           <AlertTitle>Error loading search results</AlertTitle>
           <AlertDescription>
             An unexpected error occurred while searching for movies. Please try
