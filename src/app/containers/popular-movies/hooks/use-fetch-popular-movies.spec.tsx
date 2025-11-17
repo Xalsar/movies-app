@@ -7,8 +7,11 @@ import { SWRConfig } from "swr";
 vi.mock("axios");
 const mockedAxios = vi.mocked(axios);
 
-process.env.NEXT_PUBLIC_API_URL = "http://mock-api.com/v3";
-process.env.NEXT_PUBLIC_API_KEY = "mock-key";
+const MOCK_API_URL = "http://mock-api.com/v3";
+const MOCK_API_KEY = "mock-key";
+
+vi.stubEnv("NEXT_PUBLIC_API_URL", MOCK_API_URL);
+vi.stubEnv("NEXT_PUBLIC_API_KEY", MOCK_API_KEY);
 
 const mockMovieData = {
   page: 1,
