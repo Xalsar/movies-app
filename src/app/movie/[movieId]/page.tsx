@@ -4,9 +4,27 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { useNavigateToMoviesList } from "./hooks/use-navigate-to-movies-list";
+import { useFetchMovieDetails } from "./hooks/use-fetch-movie-details";
+
+import { useParams } from "next/navigation";
 
 export default function MoviePage() {
+  const params = useParams();
+
+  const movieId = params?.movieId as string;
+
+  if (!movieId) {
+    return <div>Movie ID is missing.</div>;
+  }
+
   const { navigateToMoviesList } = useNavigateToMoviesList();
+  const {
+    data: movieDetailsData,
+    error: movieDetailsError,
+    isLoading: movieDetailsIsLoading,
+  } = useFetchMovieDetails(movieId);
+
+  console.log("movieDetailsData", movieDetailsData);
 
   return (
     <Card className="m-4 mx-auto max-w-7xl">
@@ -15,35 +33,43 @@ export default function MoviePage() {
       </CardHeader>
       <CardContent className="">
         <Button onClick={navigateToMoviesList}>Go back to main list</Button>
-        <div className="flex flex-col items-center gap-3 text-center">
-          <Image
-            src="https://picsum.photos/800/1200"
-            alt="Movie poster"
-            width={800}
-            height={1200}
-            className="block"
-          />
-          <p>
-            <span className="font-bold">Release date:</span> 12/25/2024
-          </p>
-          <p>
-            <span className="font-bold">Overview:</span> This is a brief
-            synopsis of the movie. It provides an overview of the plot and key
-            themes.
-          </p>
-          <p>
-            <span className="font-bold">Genre:</span> Action, Adventure, Sci-Fi
-          </p>
-          <p>
-            <span className="font-bold">Rating:</span> 4.5/5
-          </p>
-          <p>
-            <span className="font-bold">Runtime:</span> 120 minutes
-          </p>
-          <p>
-            <span className="font-bold">Language:</span> English
-          </p>
-        </div>
+        {movieDetailsData && (
+          <div className="flex flex-col items-center gap-3 text-center">
+            <Image
+              src={`https://image.tmdb.org/t/p/w500${movieDetailsData.poster_path}`}
+              alt="Movie poster"
+              width={800}
+              height={1200}
+              className="block"
+            />
+            <p>
+              <span className="font-bold">Release date:</span>{" "}
+              {movieDetailsData.release_date}
+            </p>
+            <p>
+              <span className="font-bold">Overview:</span>{" "}
+              {movieDetailsData.overview}
+            </p>
+            <p>
+              <span className="font-bold">Genre:</span>{" "}
+              {movieDetailsData.genres.map((genre) => genre.name).join(", ")}
+            </p>
+            <p>
+              <span className="font-bold">Rating:</span>{" "}
+              {movieDetailsData.popularity}
+            </p>
+            <p>
+              <span className="font-bold">Runtime:</span>{" "}
+              {movieDetailsData.runtime} minutes
+            </p>
+            <p>
+              <span className="font-bold">Languages:</span>{" "}
+              {movieDetailsData.spoken_languages
+                .map((lang) => lang.english_name)
+                .join(", ")}
+            </p>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
