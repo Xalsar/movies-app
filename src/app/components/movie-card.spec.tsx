@@ -45,6 +45,19 @@ vi.mock("~/components/ui/card", () => ({
   ),
 }));
 
+vi.mock("lucide-react", () => ({
+  Star: ({ size, className }: { size: number; className?: string }) => (
+    <svg
+      data-testid="star-icon-mock"
+      className={className}
+      width={size}
+      height={size}
+    >
+      <polygon points="10,1 12,7 18,7 13,11 15,17 10,13 5,17 7,11 2,7 8,7" />
+    </svg>
+  ),
+}));
+
 const mockProps = {
   href: "/movie/123",
   imageUrl: "https://example.com/poster.jpg",
