@@ -1,29 +1,36 @@
-# Create T3 App
+# XCG super cool movies app!
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+<img width="1909" height="1075" alt="image" src="https://github.com/user-attachments/assets/4036bc02-3831-4658-adea-ebf7c02b93c6" />
+<img width="1908" height="1067" alt="image" src="https://github.com/user-attachments/assets/3a22f615-3717-40df-b88f-5ac81e0f0a84" />
 
-## What's next? How do I make an app with this?
+## How to Run This Project
+```
+cp .env.example .env # Remember to replace the mock API key with the real one
+pnpm install
+pnpm run build
+pnpm run start
+```
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+And if you want to run it in **development mode**:
+```
+cp .env.example .env # Remember to replace the mock API key with the real one
+pnpm install
+pnpm run dev
+```
+---
+## How to Execute the Tests
+```
+cp .env.example .env # Remember to replace the mock API key with the real one
+pnpm install
+pnpm run test
+```
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+---
+## Potential Improvements (If I Had More Time)
+* I would have added **pagination** so users could see all the movies.
+* I would have stored the search query in **local storage**, or similar, so that when users return to the movie list, the previous query they used is still present.
+* I would have added more tests.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
-
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+---
+## Thanks!
+Thanks for taking a look at my repo! Have a nice day!
