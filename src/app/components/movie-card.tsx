@@ -27,7 +27,7 @@ export const MovieCard = ({
             <CardTitle className="text-xl">{title}</CardTitle>
             <p>{releaseDate}</p>
             <p className="flex items-center gap-1">
-              <Star size={15} className="mb-[0.1rem]" /> {rating}
+              <Star size={15} className="mb-[0.06rem]" /> {rating}
             </p>
           </div>
         </CardContent>
