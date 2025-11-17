@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Card, CardContent, CardTitle } from "~/components/ui/card";
+import { Star } from "lucide-react";
 
 export const MovieCard = ({
   href,
@@ -25,7 +26,9 @@ export const MovieCard = ({
           <div className="flex flex-col items-baseline gap-1">
             <CardTitle className="text-xl">{title}</CardTitle>
             <p>{releaseDate}</p>
-            <p>{rating}</p>
+            <p className="flex items-center gap-1">
+              <Star size={15} /> {rating}
+            </p>
           </div>
         </CardContent>
       </Card>
