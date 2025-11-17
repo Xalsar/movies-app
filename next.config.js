@@ -6,8 +6,11 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
-     images: {
-    remotePatterns: [new URL('https://picsum.photos/**')],
+  images: {
+    remotePatterns: [
+      new URL("https://picsum.photos/**"),
+      new URL("https://image.tmdb.org/t/p/w500/**"),
+    ],
   },
 };
 
