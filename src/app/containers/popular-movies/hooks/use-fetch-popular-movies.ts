@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 import type { Movie } from "~/types/movie";
 
-export const useFetchFavouriteMovies = () => {
+export const useFetchPopularMovies = () => {
   const fetcher = (url: string) =>
     axios(url, {
       method: "GET",

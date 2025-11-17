@@ -3,18 +3,13 @@
 import { Input } from "~/components/ui/input";
 
 import { MovieCard } from "./components/movie-card";
-import { useFetchFavouriteMovies } from "./hooks/use-fetch-favourite-movies";
 import { LoadingSpinner } from "./components/loading-spinner";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
-import { useSearchMovies } from "./hooks/use-search-movies";
+import { useSearchMovies } from "./containers/search-movies/hooks/use-search-movies";
+import { PopularMovies } from "./containers/popular-movies/popular-movies";
+import { SearchMovies } from "./containers/search-movies/search-movies";
 
 export default function HomePage() {
-  const {
-    data: popularMoviesData,
-    error: popularMoviesError,
-    isLoading: popularMoviesIsLoading,
-  } = useFetchFavouriteMovies();
-
   const {
     query,
     handleInputChange,
@@ -27,93 +22,8 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto max-w-7xl py-3">
-      <h2 className="mb-2 text-2xl font-bold">Movie searcher</h2>
-      <form className="flex gap-3" onSubmit={(e) => e.preventDefault()}>
-        <Input
-          name="search"
-          placeholder="Search for a movie..."
-          id="search"
-          value={query}
-          onChange={handleInputChange}
-        />
-      </form>
-      {!didUserStartSearching && (
-        <Alert className="mt-2">
-          <AlertTitle>Search for movies</AlertTitle>
-          <AlertDescription>
-            Use the search bar above to find your favorite movies by title.
-          </AlertDescription>
-        </Alert>
-      )}
-      {!searchMoviesIsLoading && noMoviesFound && didUserStartSearching && (
-        <Alert className="mt-2">
-          <AlertTitle>No search results</AlertTitle>
-          <AlertDescription>
-            No movies found matching your search criteria. Please try a
-            different keyword.
-          </AlertDescription>
-        </Alert>
-      )}
-      {searchMoviesError && (
-        <Alert variant="destructive" className="mt-2">
-          <AlertTitle>Error loading search results</AlertTitle>
-          <AlertDescription>
-            An unexpected error occurred while searching for movies. Please try
-            again later. Contact support if the problem persists.
-          </AlertDescription>
-        </Alert>
-      )}
-      {searchMoviesIsLoading && (
-        <LoadingSpinner>Searching for movies...</LoadingSpinner>
-      )}
-      <div className="flex flex-wrap items-center justify-evenly">
-        {searchMoviesData &&
-          searchMoviesData.results.map((movie) => (
-            <MovieCard
-              key={movie.id}
-              title={movie.title}
-              imageUrl={
-                movie.poster_path &&
-                `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-              }
-              releaseDate={movie.release_date}
-              rating={`${movie.vote_average}/10`}
-              href={`/movie/${movie.id}`}
-            />
-          ))}
-      </div>
-      <div className="mt-10">
-        <h2 className="mb-2 text-2xl font-bold">Popular movies</h2>
-        {popularMoviesError && (
-          <Alert variant="destructive">
-            <AlertTitle>Error loading popular movies</AlertTitle>
-            <AlertDescription>
-              An unexpected error occurred while fetching popular movies. Please
-              try again later. Contact support if the problem persists.
-            </AlertDescription>
-          </Alert>
-        )}
-        {popularMoviesIsLoading && (
-          <LoadingSpinner>Loading popular movies...</LoadingSpinner>
-        )}
-        {popularMoviesData && (
-          <div className="flex flex-wrap items-center justify-evenly">
-            {popularMoviesData.results.map((movie) => (
-              <MovieCard
-                key={movie.id}
-                title={movie.title}
-                imageUrl={
-                  movie.poster_path &&
-                  `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                }
-                releaseDate={movie.release_date}
-                rating={`${movie.vote_average}/10`}
-                href={`/movie/${movie.id}`}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      <SearchMovies />
+      <PopularMovies />
     </div>
   );
 }
