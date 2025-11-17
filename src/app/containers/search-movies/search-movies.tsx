@@ -3,6 +3,7 @@ import { useSearchMovies } from "./hooks/use-search-movies";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { LoadingSpinner } from "~/app/components/loading-spinner";
 import { MovieCard } from "~/app/components/movie-card";
+import { Search } from "lucide-react";
 
 export const SearchMovies = () => {
   const {
@@ -18,7 +19,14 @@ export const SearchMovies = () => {
   return (
     <>
       <h2 className="mb-2 text-2xl font-bold">Movie searcher</h2>
-      <form className="flex gap-3" onSubmit={(e) => e.preventDefault()}>
+      <form
+        className="relative flex gap-3"
+        onSubmit={(e) => e.preventDefault()}
+      >
+        <Search
+          className="absolute top-1/2 right-3 -translate-y-1/2 transform text-slate-500"
+          size={20}
+        />
         <Input
           name="search"
           placeholder="Search for a movie..."
