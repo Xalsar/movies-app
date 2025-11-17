@@ -3,15 +3,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
-
-import { useRouter } from "next/navigation";
+import { useNavigateToMoviesList } from "./hooks/use-navigate-to-movies-list";
 
 export default function MoviePage() {
-  const router = useRouter();
-
-  const handleClickGoBack = () => {
-    router.push("/");
-  };
+  const { navigateToMoviesList } = useNavigateToMoviesList();
 
   return (
     <Card className="m-4 mx-auto max-w-7xl">
@@ -19,7 +14,7 @@ export default function MoviePage() {
         <CardTitle className="text-2xl">Movie Title</CardTitle>
       </CardHeader>
       <CardContent className="">
-        <Button onClick={handleClickGoBack}>Go back to main list</Button>
+        <Button onClick={navigateToMoviesList}>Go back to main list</Button>
         <div className="flex flex-col items-center gap-3 text-center">
           <Image
             src="https://picsum.photos/800/1200"

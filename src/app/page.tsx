@@ -5,14 +5,10 @@ import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 
 import { MovieCard } from "./components/movie-card";
-import { useRouter } from "next/navigation";
+import { useNavigateToMovieDetails } from "./hooks/use-navigate-to-movie-details";
 
 export default function HomePage() {
-  const router = useRouter();
-
-  const handleClickViewMoreDetails = (movieId: string) => {
-    router.push(`/movie/${movieId}`);
-  };
+  const { navigateToMovieDetails } = useNavigateToMovieDetails();
 
   return (
     <div className="mx-auto max-w-7xl py-3">
@@ -26,42 +22,42 @@ export default function HomePage() {
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
-          handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+          handleClickViewMoreDetails={() => navigateToMovieDetails("1")}
         />{" "}
         <MovieCard
           title="Mock title"
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
-          handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+          handleClickViewMoreDetails={() => navigateToMovieDetails("2")}
         />{" "}
         <MovieCard
           title="Mock title"
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
-          handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+          handleClickViewMoreDetails={() => navigateToMovieDetails("1")}
         />{" "}
         <MovieCard
           title="Mock title"
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
-          handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+          handleClickViewMoreDetails={() => navigateToMovieDetails("2")}
         />{" "}
         <MovieCard
           title="Mock title"
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
-          handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+          handleClickViewMoreDetails={() => navigateToMovieDetails("1")}
         />{" "}
         <MovieCard
           title="Mock title"
           imageUrl="https://picsum.photos/200/300"
           releaseDate="01/01/2024"
           rating="4/5"
-          handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+          handleClickViewMoreDetails={() => navigateToMovieDetails("2")}
         />{" "}
       </div>
       <div className="mt-10">
@@ -72,42 +68,42 @@ export default function HomePage() {
             imageUrl="https://picsum.photos/200/300"
             releaseDate="01/01/2024"
             rating="4/5"
-            handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+            handleClickViewMoreDetails={() => navigateToMovieDetails("1")}
           />{" "}
           <MovieCard
             title="Mock title"
             imageUrl="https://picsum.photos/200/300"
             releaseDate="01/01/2024"
             rating="4/5"
-            handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+            handleClickViewMoreDetails={() => navigateToMovieDetails("2")}
           />{" "}
           <MovieCard
             title="Mock title"
             imageUrl="https://picsum.photos/200/300"
             releaseDate="01/01/2024"
             rating="4/5"
-            handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+            handleClickViewMoreDetails={() => navigateToMovieDetails("1")}
           />{" "}
           <MovieCard
             title="Mock title"
             imageUrl="https://picsum.photos/200/300"
             releaseDate="01/01/2024"
             rating="4/5"
-            handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+            handleClickViewMoreDetails={() => navigateToMovieDetails("2")}
           />{" "}
           <MovieCard
             title="Mock title"
             imageUrl="https://picsum.photos/200/300"
             releaseDate="01/01/2024"
             rating="4/5"
-            handleClickViewMoreDetails={() => handleClickViewMoreDetails("1")}
+            handleClickViewMoreDetails={() => navigateToMovieDetails("1")}
           />{" "}
           <MovieCard
             title="Mock title"
             imageUrl="https://picsum.photos/200/300"
             releaseDate="01/01/2024"
             rating="4/5"
-            handleClickViewMoreDetails={() => handleClickViewMoreDetails("2")}
+            handleClickViewMoreDetails={() => navigateToMovieDetails("2")}
           />{" "}
         </div>
       </div>
