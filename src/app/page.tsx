@@ -1,19 +1,14 @@
 "use client";
 
-import { Button } from "~/components/ui/button";
-
 import { Input } from "~/components/ui/input";
 
 import { MovieCard } from "./components/movie-card";
-import { useNavigateToMovieDetails } from "./hooks/use-navigate-to-movie-details";
 import { useFetchFavouriteMovies } from "./hooks/use-fetch-favourite-movies";
 import { LoadingSpinner } from "./components/loading-spinner";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { useSearchMovies } from "./hooks/use-search-movies";
 
 export default function HomePage() {
-  const { navigateToMovieDetails } = useNavigateToMovieDetails();
-
   const {
     data: popularMoviesData,
     error: popularMoviesError,
