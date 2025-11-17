@@ -55,38 +55,40 @@ export default function MoviePage() {
           <LoadingSpinner>Loading movie details...</LoadingSpinner>
         )}
         {movieDetailsData && (
-          <div className="flex flex-col items-center gap-3 text-center">
+          <div className="flex flex-col items-center gap-3">
             <img
               src={`https://image.tmdb.org/t/p/w500${movieDetailsData.poster_path}`}
               alt={`${movieDetailsData.title} poster`}
             />
-            <p>
-              <span className="font-bold">Release date:</span>{" "}
-              {movieDetailsData.release_date}
-            </p>
-            <p>
-              <span className="font-bold">Overview:</span>{" "}
-              {movieDetailsData.overview}
-            </p>
-            <p>
-              <span className="font-bold">Genre:</span>{" "}
-              {movieDetailsData.genres.map((genre) => genre.name).join(", ")}
-            </p>
-            <p>
-              <span className="font-bold">Rating:</span>{" "}
-              {movieDetailsData.vote_average} / 10 from{" "}
-              {movieDetailsData.vote_count} votes
-            </p>
-            <p>
-              <span className="font-bold">Runtime:</span>{" "}
-              {fromMinutesToHoursAndMinutes(movieDetailsData.runtime)}
-            </p>
-            <p>
-              <span className="font-bold">Languages:</span>{" "}
-              {movieDetailsData.spoken_languages
-                .map((lang) => lang.english_name)
-                .join(", ")}
-            </p>
+            <div className="max-w-3xl">
+              <p>
+                <span className="font-bold">Release date:</span>{" "}
+                {movieDetailsData.release_date}
+              </p>
+              <p>
+                <span className="font-bold">Overview:</span>{" "}
+                {movieDetailsData.overview}
+              </p>
+              <p>
+                <span className="font-bold">Genre:</span>{" "}
+                {movieDetailsData.genres.map((genre) => genre.name).join(", ")}
+              </p>
+              <p>
+                <span className="font-bold">Rating:</span>{" "}
+                {movieDetailsData.vote_average} / 10 from{" "}
+                {movieDetailsData.vote_count} votes
+              </p>
+              <p>
+                <span className="font-bold">Runtime:</span>{" "}
+                {fromMinutesToHoursAndMinutes(movieDetailsData.runtime)}
+              </p>
+              <p>
+                <span className="font-bold">Languages:</span>{" "}
+                {movieDetailsData.spoken_languages
+                  .map((lang) => lang.english_name)
+                  .join(", ")}
+              </p>
+            </div>
           </div>
         )}
       </CardContent>
