@@ -36,7 +36,7 @@ export default function MoviePage() {
       <CardContent className="">
         <Button onClick={navigateToMoviesList}>Go back to main list</Button>
         {movieDetailsError && (
-          <Alert variant="destructive">
+          <Alert variant="destructive" className="mt-2">
             <AlertTitle>Error loading movie details</AlertTitle>
             <AlertDescription>
               An unexpected error occurred while fetching movie details. Please

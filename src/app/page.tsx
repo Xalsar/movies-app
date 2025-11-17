@@ -32,7 +32,7 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto max-w-7xl py-3">
-      <h2 className="mb-3 text-2xl font-bold">Movie searcher</h2>
+      <h2 className="mb-2 text-2xl font-bold">Movie searcher</h2>
       <form className="flex gap-3" onSubmit={(e) => e.preventDefault()}>
         <Input
           name="search"
@@ -60,7 +60,7 @@ export default function HomePage() {
         </Alert>
       )}
       {searchMoviesError && (
-        <Alert variant="destructive">
+        <Alert variant="destructive" className="mt-2">
           <AlertTitle>Error loading search results</AlertTitle>
           <AlertDescription>
             An unexpected error occurred while searching for movies. Please try
@@ -90,7 +90,7 @@ export default function HomePage() {
           ))}
       </div>
       <div className="mt-10">
-        <h2 className="mb-3 text-2xl font-bold">Popular movies</h2>
+        <h2 className="mb-2 text-2xl font-bold">Popular movies</h2>
         {popularMoviesError && (
           <Alert variant="destructive">
             <AlertTitle>Error loading popular movies</AlertTitle>
