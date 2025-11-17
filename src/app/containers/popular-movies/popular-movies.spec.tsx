@@ -3,7 +3,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { PopularMovies } from "./popular-movies";
 import * as usePopularMoviesModule from "./hooks/use-fetch-popular-movies";
 
-process.env.NEXT_PUBLIC_API_IMAGE_URL = "https://image.tmdb.org/t/p";
+vi.stubEnv("NEXT_PUBLIC_API_IMAGE_URL", "https://image.tmdb.org/t/p");
 
 vi.mock("~/components/ui/alert", () => ({
   Alert: ({ children, variant }: any) => (

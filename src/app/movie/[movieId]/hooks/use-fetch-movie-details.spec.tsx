@@ -4,7 +4,6 @@ import axios from "axios";
 import { SWRConfig } from "swr";
 
 import { useFetchMovieDetails } from "./use-fetch-movie-details";
-import type { MovieDetails } from "~/types/movie-details";
 
 vi.mock("axios");
 const mockedAxios = vi.mocked(axios);
