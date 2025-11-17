@@ -51,13 +51,11 @@ describe("useFetchMovieDetails", () => {
       wrapper,
     });
 
-    // Initially loading
     expect(result.current.isLoading).toBe(true);
     expect(result.current.data).toBeUndefined();
     expect(result.current.error).toBeUndefined();
     expect(result.current.isNotFoundError).toBeFalsy();
 
-    // Wait for data to load
     await waitFor(() => {
       expect(result.current.isLoading).toBe(false);
     });
