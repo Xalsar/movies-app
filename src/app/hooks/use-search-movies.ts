@@ -20,7 +20,6 @@ export const useSearchMovies = () => {
     axios(url, {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
         "Content-Type": "application/json;charset=utf-8",
       },
     }).then((res) => res.data);
@@ -31,7 +30,7 @@ export const useSearchMovies = () => {
     total_results: number;
   }>(
     debouncedSearchTerm
-      ? `${process.env.NEXT_PUBLIC_API_URL}/search/movie?query=${debouncedSearchTerm}`
+      ? `${process.env.NEXT_PUBLIC_API_URL}/search/movie?query=${debouncedSearchTerm}&api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1&include_adult=false`
       : null,
     fetcher,
   );

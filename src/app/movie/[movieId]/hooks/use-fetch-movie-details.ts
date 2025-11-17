@@ -8,13 +8,12 @@ export const useFetchMovieDetails = (movieId: string) => {
     axios(url, {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
         "Content-Type": "application/json;charset=utf-8",
       },
     }).then((res) => res.data);
 
   const { data, error, isLoading } = useSWR<MovieDetails>(
-    `${process.env.NEXT_PUBLIC_API_URL}/movie/${movieId}?language=en-US`,
+    `${process.env.NEXT_PUBLIC_API_URL}/movie/${movieId}?language=en-US&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
     fetcher,
   );
 
