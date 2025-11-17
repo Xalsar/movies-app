@@ -7,6 +7,7 @@ import { Input } from "~/components/ui/input";
 import { MovieCard } from "./components/movie-card";
 import { useNavigateToMovieDetails } from "./hooks/use-navigate-to-movie-details";
 import { useFetchFavouriteMovies } from "./hooks/use-fetch-favourite-movies";
+import { LoadingSpinner } from "./components/loading-spinner";
 
 export default function HomePage() {
   const { navigateToMovieDetails } = useNavigateToMovieDetails();
@@ -69,6 +70,9 @@ export default function HomePage() {
       </div> */}
       <div className="mt-10">
         <h2 className="mb-3 text-3xl font-bold">Popular movies</h2>
+        {popularMoviesIsLoading && (
+          <LoadingSpinner>Loading popular movies...</LoadingSpinner>
+        )}
         {popularMoviesData && (
           <div className="flex flex-wrap items-center justify-evenly">
             {popularMoviesData.results.map((movie) => (
