@@ -28,6 +28,8 @@ export default function MoviePage() {
     isLoading: movieDetailsIsLoading,
   } = useFetchMovieDetails(movieId);
 
+  console.log("movieDetailsData", movieDetailsData);
+
   return (
     <Card className="m-4 mx-auto max-w-7xl">
       <CardHeader>
@@ -70,7 +72,8 @@ export default function MoviePage() {
             </p>
             <p>
               <span className="font-bold">Rating:</span>{" "}
-              {movieDetailsData.popularity}
+              {movieDetailsData.vote_average} / 10 from{" "}
+              {movieDetailsData.vote_count} votes
             </p>
             <p>
               <span className="font-bold">Runtime:</span>{" "}
