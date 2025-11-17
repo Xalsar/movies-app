@@ -32,6 +32,7 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto max-w-7xl py-3">
+      <h2 className="mb-3 text-2xl font-bold">Movie searcher</h2>
       <form className="flex gap-3" onSubmit={(e) => e.preventDefault()}>
         <Input
           name="search"
