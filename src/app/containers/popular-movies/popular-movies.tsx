@@ -10,6 +10,8 @@ export const PopularMovies = () => {
     isLoading: popularMoviesIsLoading,
   } = useFetchPopularMovies();
 
+  console.log("popularMoviesData", popularMoviesData);
+
   return (
     <div className="mt-10">
       <h2 className="mb-2 text-2xl font-bold">Popular movies</h2>
@@ -36,7 +38,7 @@ export const PopularMovies = () => {
                 `https://image.tmdb.org/t/p/w500${movie.poster_path}`
               }
               releaseDate={movie.release_date}
-              rating={`${movie.vote_average}/10`}
+              rating={`${movie.vote_average.toFixed(1)}/10`}
               href={`/movie/${movie.id}`}
             />
           ))}

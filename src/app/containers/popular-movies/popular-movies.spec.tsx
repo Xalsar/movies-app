@@ -44,7 +44,7 @@ describe("PopularMovies", () => {
         title: "Movie 1",
         poster_path: "/path1.jpg",
         release_date: "2024-01-01",
-        vote_average: 8.5,
+        vote_average: 8.52,
       },
       {
         id: 2,
