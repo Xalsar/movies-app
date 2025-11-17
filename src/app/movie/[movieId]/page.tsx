@@ -27,9 +27,11 @@ export default function MoviePage() {
 
   return (
     <Card className="m-4 mx-auto max-w-7xl">
-      <CardHeader>
-        <CardTitle className="text-2xl">Movie Title</CardTitle>
-      </CardHeader>
+      {movieDetailsData && (
+        <CardHeader>
+          <CardTitle className="text-2xl">{movieDetailsData.title}</CardTitle>
+        </CardHeader>
+      )}
       <CardContent className="">
         <Link href="/" className="text-primary mb-4 inline-block underline">
           Back to movies list
