@@ -9,22 +9,20 @@ import { fromMinutesToHoursAndMinutes } from "~/utils/from-minutes-to-hours-and-
 import { useParams } from "next/navigation";
 import { LoadingSpinner } from "~/app/components/loading-spinner";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
+import { AlertCircleIcon } from "lucide-react";
 
 import { ArrowLeft } from "lucide-react";
 
 export default function MoviePage() {
   const params = useParams();
 
-  const movieId = params?.movieId as string;
-
-  if (!movieId) {
-    return <div>Movie ID is missing.</div>;
-  }
+  const movieId = params.movieId as string;
 
   const {
     data: movieDetailsData,
     error: movieDetailsError,
     isLoading: movieDetailsIsLoading,
+    isNotFoundError,
   } = useFetchMovieDetails(movieId);
 
   return (
@@ -42,8 +40,19 @@ export default function MoviePage() {
           <ArrowLeft size={15} className="mt-1" />{" "}
           <span className="block">Back to movies list</span>
         </Link>
-        {movieDetailsError && (
+        {isNotFoundError && (
           <Alert variant="destructive" className="mt-2">
+            <AlertCircleIcon />
+            <AlertTitle>Movie not found</AlertTitle>
+            <AlertDescription>
+              The movie you are looking for does not exist or has been removed.
+              Please check the movie ID or return to the movies list.
+            </AlertDescription>
+          </Alert>
+        )}
+        {movieDetailsError && !isNotFoundError && (
+          <Alert variant="destructive" className="mt-2">
+            <AlertCircleIcon />
             <AlertTitle>Error loading movie details</AlertTitle>
             <AlertDescription>
               An unexpected error occurred while fetching movie details. Please
