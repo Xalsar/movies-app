@@ -16,8 +16,8 @@ vi.stubEnv("NEXT_PUBLIC_API_KEY", MOCK_API_KEY);
 const mockMovieData = {
   page: 1,
   results: [
-    { id: 1, title: "Mock Movie 1" } as any,
-    { id: 2, title: "Mock Movie 2" } as any,
+    { id: 1, title: "Mock Movie 1" },
+    { id: 2, title: "Mock Movie 2" },
   ],
   total_pages: 10,
   total_results: 200,

@@ -21,7 +21,7 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
   </SWRConfig>
 );
 
-const mockMovieDetails: any = {
+const mockMovieDetails = {
   id: 123,
   title: "Test Movie",
   overview: "A test movie overview",
@@ -136,7 +136,7 @@ describe("useFetchMovieDetails", () => {
     const movieId1 = "123";
     const movieId2 = "456";
 
-    const mockMovieDetails2: MovieDetails = {
+    const mockMovieDetails2 = {
       ...mockMovieDetails,
       id: 456,
       title: "Another Test Movie",
