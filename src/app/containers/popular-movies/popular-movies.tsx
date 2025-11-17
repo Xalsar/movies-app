@@ -33,7 +33,7 @@ export const PopularMovies = () => {
               title={movie.title}
               imageUrl={
                 movie.poster_path &&
-                `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                `${process.env.NEXT_PUBLIC_API_IMAGE_URL}/w500${movie.poster_path}`
               }
               releaseDate={movie.release_date}
               rating={`${movie.vote_average.toFixed(1)}/10`}
