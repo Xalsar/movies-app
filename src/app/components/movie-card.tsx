@@ -1,4 +1,3 @@
-import { Button } from "~/components/ui/button";
 import Link from "next/link";
 
 import { Card, CardContent, CardTitle } from "~/components/ui/card";
