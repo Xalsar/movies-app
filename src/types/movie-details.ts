@@ -24,7 +24,6 @@ interface SpokenLanguage {
 export interface MovieDetails {
   adult: boolean;
   backdrop_path: string | null;
-  belongs_to_collection: any | null;
   budget: number;
   genres: Genre[];
   homepage: string;

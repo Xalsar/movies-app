@@ -30,7 +30,7 @@ describe("LoadingSpinner", () => {
 
   test("should render the spinner and the provided children text", () => {
     const loadingMessage = "Please wait...";
-    render(<LoadingSpinner children={loadingMessage} />);
+    render(<LoadingSpinner>{loadingMessage}</LoadingSpinner>);
 
     expect(screen.getByTestId("mock-spinner")).toBeInTheDocument();
 
