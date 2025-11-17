@@ -10,9 +10,9 @@ const MovieCard = () => {
         height={300}
       />
       <div>
-        <h2 className="text-2xl font-bold text-blue-700">
+        <p className="text-2xl font-bold text-blue-700">
           The return of the Jedi
-        </h2>
+        </p>
         <p>01/1999</p>
         <p>5/5</p>
       </div>
@@ -22,13 +22,34 @@ const MovieCard = () => {
 
 export default function HomePage() {
   return (
-    <div className="relative w-full gap-3">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-evenly">
+    <div className="mx-auto max-w-7xl py-3">
+      <form className="flex gap-3">
+        <input
+          className="block flex-1 rounded border border-gray-300 p-3 shadow"
+          name="search"
+          placeholder="Search for a movie..."
+          id="search"
+        />
+        <button className="rounded border p-3">Search</button>
+      </form>
+      <div className="flex flex-wrap items-center justify-evenly">
         <MovieCard />
         <MovieCard />
         <MovieCard />
         <MovieCard />
         <MovieCard />
+      </div>
+      <div className="mt-10">
+        <h2 className="mb-3 text-3xl font-bold text-blue-700">
+          Popular movies
+        </h2>
+        <div className="flex flex-wrap items-center justify-evenly">
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+        </div>
       </div>
     </div>
   );
