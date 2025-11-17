@@ -49,12 +49,9 @@ export default function MoviePage() {
         )}
         {movieDetailsData && (
           <div className="flex flex-col items-center gap-3 text-center">
-            <Image
+            <img
               src={`https://image.tmdb.org/t/p/w500${movieDetailsData.poster_path}`}
-              alt="Movie poster"
-              width={800}
-              height={1200}
-              className="block"
+              alt={`${movieDetailsData.title} poster`}
             />
             <p>
               <span className="font-bold">Release date:</span>{" "}

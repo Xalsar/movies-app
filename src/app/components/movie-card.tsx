@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Button } from "~/components/ui/button";
 
 import { Card, CardContent, CardTitle } from "~/components/ui/card";
@@ -20,12 +19,7 @@ export const MovieCard = ({
     <Card className="my-3 block w-xl">
       <CardContent className="flex gap-3">
         {imageUrl && (
-          <Image
-            src={imageUrl}
-            alt={`${title} poster`}
-            width={200}
-            height={300}
-          />
+          <img src={imageUrl} alt={`${title} poster`} className="w-30" />
         )}
         <div className="flex flex-col items-baseline gap-1">
           <CardTitle className="text-xl">{title}</CardTitle>
