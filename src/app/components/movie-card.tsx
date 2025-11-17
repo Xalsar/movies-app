@@ -10,7 +10,7 @@ export const MovieCard = ({
   rating,
   handleClickViewMoreDetails,
 }: {
-  imageUrl: string;
+  imageUrl: string | null;
   title: string;
   releaseDate: string;
   rating: string;
@@ -19,12 +19,14 @@ export const MovieCard = ({
   return (
     <Card className="my-3 block w-xl">
       <CardContent className="flex gap-3">
-        <Image
-          src={imageUrl}
-          alt={`${title} poster`}
-          width={200}
-          height={300}
-        />
+        {imageUrl && (
+          <Image
+            src={imageUrl}
+            alt={`${title} poster`}
+            width={200}
+            height={300}
+          />
+        )}
         <div className="flex flex-col items-baseline gap-1">
           <CardTitle className="text-xl">{title}</CardTitle>
           <p>{releaseDate}</p>

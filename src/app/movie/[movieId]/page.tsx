@@ -28,8 +28,6 @@ export default function MoviePage() {
     isLoading: movieDetailsIsLoading,
   } = useFetchMovieDetails(movieId);
 
-  console.log("movieDetailsData", movieDetailsData);
-
   return (
     <Card className="m-4 mx-auto max-w-7xl">
       <CardHeader>
