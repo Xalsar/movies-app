@@ -8,6 +8,7 @@ import { MovieCard } from "./components/movie-card";
 import { useNavigateToMovieDetails } from "./hooks/use-navigate-to-movie-details";
 import { useFetchFavouriteMovies } from "./hooks/use-fetch-favourite-movies";
 import { LoadingSpinner } from "./components/loading-spinner";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 
 export default function HomePage() {
   const { navigateToMovieDetails } = useNavigateToMovieDetails();
@@ -69,7 +70,16 @@ export default function HomePage() {
         />{" "}
       </div> */}
       <div className="mt-10">
-        <h2 className="mb-3 text-3xl font-bold">Popular movies</h2>
+        <h2 className="mb-3 text-2xl font-bold">Popular movies</h2>
+        {popularMoviesError && (
+          <Alert variant="destructive">
+            <AlertTitle>Error loading popular movies</AlertTitle>
+            <AlertDescription>
+              An unexpected error occurred while fetching popular movies. Please
+              try again later. Contact support if the problem persists.
+            </AlertDescription>
+          </Alert>
+        )}
         {popularMoviesIsLoading && (
           <LoadingSpinner>Loading popular movies...</LoadingSpinner>
         )}
