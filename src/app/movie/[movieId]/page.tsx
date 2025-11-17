@@ -56,10 +56,12 @@ export default function MoviePage() {
         )}
         {movieDetailsData && (
           <div className="flex flex-col items-center gap-3">
-            <img
-              src={`${process.env.NEXT_PUBLIC_API_IMAGE_URL}/w500${movieDetailsData.poster_path}`}
-              alt={`${movieDetailsData.title} poster`}
-            />
+            {movieDetailsData.poster_path && (
+              <img
+                src={`${process.env.NEXT_PUBLIC_API_IMAGE_URL}/w500${movieDetailsData.poster_path}`}
+                alt={`${movieDetailsData.title} poster`}
+              />
+            )}
             <div className="max-w-3xl">
               <p>
                 <span className="font-bold">Release date:</span>{" "}
