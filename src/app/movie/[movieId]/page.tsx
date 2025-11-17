@@ -1,10 +1,8 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
-import Image from "next/image";
-import { Button } from "~/components/ui/button";
-import { useNavigateToMoviesList } from "./hooks/use-navigate-to-movies-list";
 import { useFetchMovieDetails } from "./hooks/use-fetch-movie-details";
+import Link from "next/link";
 
 import { fromMinutesToHoursAndMinutes } from "~/utils/from-minutes-to-hours-and-minutes";
 
@@ -21,7 +19,6 @@ export default function MoviePage() {
     return <div>Movie ID is missing.</div>;
   }
 
-  const { navigateToMoviesList } = useNavigateToMoviesList();
   const {
     data: movieDetailsData,
     error: movieDetailsError,
@@ -34,7 +31,9 @@ export default function MoviePage() {
         <CardTitle className="text-2xl">Movie Title</CardTitle>
       </CardHeader>
       <CardContent className="">
-        <Button onClick={navigateToMoviesList}>Go back to main list</Button>
+        <Link href="/" className="text-primary mb-4 inline-block underline">
+          Back to movies list
+        </Link>
         {movieDetailsError && (
           <Alert variant="destructive" className="mt-2">
             <AlertTitle>Error loading movie details</AlertTitle>

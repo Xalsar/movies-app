@@ -83,9 +83,7 @@ export default function HomePage() {
               }
               releaseDate={movie.release_date}
               rating={`${movie.vote_average}/10`}
-              handleClickViewMoreDetails={() =>
-                navigateToMovieDetails(movie.id.toString())
-              }
+              href={`/movie/${movie.id}`}
             />
           ))}
       </div>
@@ -115,9 +113,7 @@ export default function HomePage() {
                 }
                 releaseDate={movie.release_date}
                 rating={`${movie.vote_average}/10`}
-                handleClickViewMoreDetails={() =>
-                  navigateToMovieDetails(movie.id.toString())
-                }
+                href={`/movie/${movie.id}`}
               />
             ))}
           </div>
