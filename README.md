@@ -30,6 +30,7 @@ pnpm run test
 * I would have added **pagination** so users could see all the movies.
 * I would have stored the search query in **local storage**, or similar, so that when users return to the movie list, the previous query they used is still present.
 * I would have added more tests.
+* I would have made the project responsive. (It wasn't a requirement so I did not spend time on it.)
 
 ---
 ## Thanks!
