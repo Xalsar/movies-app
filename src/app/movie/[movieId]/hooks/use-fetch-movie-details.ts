@@ -17,8 +17,11 @@ export const useFetchMovieDetails = (movieId: string) => {
     fetcher,
   );
 
-  const isNotFoundError =
-    error && error.response && error.response.status === 404;
+  const isNotFoundError = !!(
+    error &&
+    error.response &&
+    error.response.status === 404
+  );
 
   return {
     data,
